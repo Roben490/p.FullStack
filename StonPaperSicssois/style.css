@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Mochiy+Pop+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #b1bfd8;
+    background-image: linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.game-container{
+    width: 60%;
+}
+
+.title {
+    background: white;
+    margin: 2rem 0;
+    padding: 5rem 0;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border: 5px solid white;
+    height: 250px;
+}
+
+.game img{
+    width: 120px;
+    height: 130px;
+}
+
+h1 {
+    text-align: center;
+    margin: 1rem;
+}
+
+.choices{
+    display: flex;
+    justify-content: center;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+    padding: .7rem;
+    margin-right: 2rem;
+    border-radius: 50%;
+    border: .4rem solid black;
+    cursor: pointer;
+    transition: background .3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.img:hover{
+    background: black;
+}
+
+.img img{
+    width: 100%;
+}
+
+.resault{
+    font-size: 1.5rem;
+    font-family: monospace, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 300px;
+    text-align: center;
+}
+
+.game h4{
+    margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 100px) {
+    .game-container{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .game-container{
+        width: 90%;
+    }
+    .game img{
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .game-container{
+        width: 95%;
+    }
+    .game img{
+        width: 100px;
+        height: fit-content;
+    }
+    .title{
+        padding: 1rem 1rem;
+    }
+    .resault{
+        font-size: 1rem;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
