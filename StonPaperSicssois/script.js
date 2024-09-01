@@ -1,67 +1,43 @@
-const pChoice = document.querySelector(".p-choise");
+const pChoice = document.querySelector(".p-choice");
 const pImg = pChoice.previousElementSibling;
-
-
-const cChoice = document.querySelector(".c-choise");
+const cChoice = document.querySelector(".c-choice");
 const cImg = cChoice.previousElementSibling;
-
-
 const weapons = document.querySelectorAll(".img");
-const resault = document.querySelector(".resault");
+const result = document.querySelector(".result");
 
-function randomNumber(){
+function randomNumber() {
     return Math.floor(Math.random() * 3);
 }
- 
+
 function computer() {
-    const choise = ["paper", "ston", "scissors"]
-    const ele = choise[randomNumber()]
-    cImg.src = `image/${ele}.jpeg`
-    cChoice.innerHTML = ele
+    const choices = ["paper", "rock", "scissors"];
+    const ele = choices[randomNumber()];
+    cImg.src = `./image/${ele}.jpeg`;
+    cImg.id = ele; 
+    cChoice.innerHTML = ele;
 }
 
-
-weapons.forEach((wepon) => {
-    wepon.addEventListener("click", () => {
-        const item = wepon.childNodes[1];
+weapons.forEach((weapon) => {
+    weapon.addEventListener("click", () => {
+        const item = weapon.querySelector("img");
         pImg.src = item.src;
-        pImg.id = wepon.id
-        pChoice.innerHTML = wepon.id
-        computer()
-        check(cImg.id, pImg.id)
-        console.log(cImg.id);
-        
-        
+        pImg.id = weapon.id;
+        pChoice.innerHTML = weapon.id;
+        computer();
+        check(pImg.id, cImg.id);
     });
 });
 
-function check(a,b) {
+function check(player, computer) {
     let msg = "";
-    if (a === b) msg = "DRAW";
-
-    // if (a == "rock" && b == "paper") {
-    //     msg =  "You WIN!";
-    // }
-    // else if (a == "rock" && b == "scissors") {
-    //     msg = "You Lost!";
-    // }
-    // if (a == "paper" && b == "scissors") {
-    //     msg =  "You WIN!";
-    // }
-    // else if (a == "paper" && b == "ston") {
-    //     msg = "You Lost!";
-    // }
-    // if (a == "scissors" && b == "ston") {
-    //     msg = "You WIN!";
-    // }
-    // else if (a == "scissors" && b == "paper") {
-    //     msg = "You Lost!";
-    // }
-    console.log(msg);
-    
-    return resault.innerHTML = msg
-    
-    //controling at click on web
-    //document.body.style.pointerEvents = "none"
-    
+    if (player === computer) {
+        msg = "DRAW";
+    } else if ((player === "rock" && computer === "scissors") ||
+               (player === "scissors" && computer === "paper") ||
+               (player === "paper" && computer === "rock")) {
+        msg = "You WIN!";
+    } else {
+        msg = "You Lost!";
+    }
+    result.innerHTML = msg;
 }
